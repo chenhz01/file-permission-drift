@@ -2,6 +2,8 @@
 
 A permission baseline reconciler for file trees. Capture what each path's mode *should* be, then re-check any time and get a diff: drifted modes, added and removed paths, and — the part that matters — any path whose group/other **write** bit got wider. Pure standard library, single file, offline. *No direct equivalent found as of 2026-10-13.*
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Permission regressions rarely arrive as a commit; they arrive as a build script, an extractor, or a colleague's `chmod -R 777 "just to unblock CI"`. There is no lightweight artifact that says "these are the modes we agreed on" and fails loudly when reality diverges — especially when divergence is in the *dangerous* direction (more permissive) rather than the harmless one.
